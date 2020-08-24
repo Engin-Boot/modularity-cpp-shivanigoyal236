@@ -1,6 +1,6 @@
 #include <iostream>
 #include <assert.h>
-
+#include<telecocolorcoder.h>
 void testNumberToPair(int pairNumber,
     TelCoColorCoder::MajorColor expectedMajor,
     TelCoColorCoder::MinorColor expectedMinor)
@@ -21,7 +21,16 @@ void testPairToNumber(
     std::cout << "Got pair number " << pairNumber << std::endl;
     assert(pairNumber == expectedPairNumber);
 }
-
+void Tostring(){
+    std::cout<<"maual of mapping pairs"<<std::endl;
+    int num;
+    for(num=1;num<=25;num++)
+    {
+         TelCoColorCoder::ColorPair colorPair =
+        TelCoColorCoder::GetColorFromPairNumber(num);
+    std::cout << "number" << colorPair.ToString() << std::endl;
+    }
+}
 int main() {
     testNumberToPair(4, TelCoColorCoder::WHITE, TelCoColorCoder::BROWN);
     testNumberToPair(5, TelCoColorCoder::WHITE, TelCoColorCoder::SLATE);
